@@ -1,13 +1,17 @@
 # Go parameters
 GOCMD=go
+PYCMD=python3
+PIPCMD=pip3
+
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
 BINARY_NAME=webserver
 BINARY_UNIX=$(BINARY_NAME)_unix
+PYPIP=$(PIPCMD) install
 
-all: deps go
+all: deps go pip
 
 go: go/build
 
@@ -29,5 +33,11 @@ build-linux:
 deps:
 	$(GOGET) github.com/go-sql-driver/mysql
 	$(GOGET) github.com/gorilla/mux
+
+pip:
+	$(PYPIP) requests
+	$(PYPIP) beautifulsoup4
+
+
 
     
