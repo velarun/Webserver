@@ -18,8 +18,8 @@ go: go/build
 go/build:
 	@echo "Building $(BIN_NAME)"
 	@go version
-	$(GOBUILD) -o bin/$(BINARY_NAME)
-	@chmod -R 777 bin/$(BINARY_NAME)
+	$(GOBUILD) -o $(BINARY_NAME)
+	@chmod 777 $(BINARY_NAME)
 
 clean: 
 	$(GOCLEAN)
